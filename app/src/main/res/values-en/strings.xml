@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Cafeteria</string>
+    <string name="titulo_carta">Todays menu</string>
+    <string name="subtitulo_carta">High school cafeteria · Open from %1$s to %2$s</string>
+    <string name="precio">€%1$.2f</string>
+    <string name="logo_descripcion">Logo description for screen reader</string>
+    <string name="producto_CfL">Coffee with milk</string>
+    <string name="desc_CfL">A white coffee</string>
+    <string name="producto_BocCho">Chorizo sandwich</string>
+    <string name="desc_BocCho">Spelt bread sandwich with pork chorizo</string>
+    <string name="producto_Crua">Butter croissant</string>
+    <string name="desc_Crua">Sourdough croissant with butter</string>
+    <string name="producto_ZumN">Orange juice</string>
+    <string name="desc_ZumN">Orange juice made with Valencian oranges</string>
+    <string name="add_one">Add one unit</string>
+    <string name="delete_one">Remove one unit</string>
+    <string name="mas_opciones">More options</string>
+    <string name="vaciar_pedido">Empty order</string>
+    <string name="pedido_vaciado">Order emptied</string>
+    <string name="total_pedido">Total: €%1$.2f</string>
+    <string name="unidades_pedido">Units: %1$d</string>
+    <string name="confirmar">Confirm</string>
+    <string name="nombre_pedido">Whose name is the order under?</string>
+    <string name="error_nombre">Enter a name for the order</string>
+    <string name="para_llevar">To take away</string>
+    <string name="avisar_listo">Notify me when ready</string>
+    <string name="titulo_confirmacion">Send the order?</string>
+    <string name="resumen_pedido">Name: %1$s · %2$d units · €%3$.2f</string>
+    <string name="resumen_aqui">Eat in</string>
+    <string name="resumen_aviso">We will notify you when it\'s ready</string>
+    <string name="enviar">Send</string>
+    <string name="cancelar">Cancel</string>
+    <string name="pedido_enviado">Order for %1$s sent</string>
+    <string name="categoria_bebida">Drinks</string>
+    <string name="categoria_comida">Food</string>
+    <string name="categoria_bolleria">Bakery</string>
+    <string name="categoria_todas">All</string>
+    <string name="producto_te">Te</string>
+    <string name="desc_te">Te with hot herbs</string>
+    <string name="producto_agua">Mineral water</string>
+    <string name="desc_agua">fresh mineral water</string>
+    <string name="producto_napolitana">chocolate napolitane</string>
+    <string name="desc_napolitana">chocolate napolitane new</string>
+    <string name="producto_sandwich">Mixed sandwich</string>
+    <string name="desc_sandwich">mixed sandwich of jam and cheese</string>
+</resources>

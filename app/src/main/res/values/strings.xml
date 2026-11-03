@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name" translatable="false">Cafeteria</string>
+    <string name="titulo_carta">Carta de hoy</string>
+    <string name="subtitulo_carta">Cafetería del instituto · Abierto de %1$s a %2$s</string>
+    <string name="precio">%1$.2f €</string>
+    <string name="logo_descripcion">descripción del logotipo, para el lector de pantalla</string>
+    <string name="producto_CfL">Cafe con leche</string>
+    <string name="desc_CfL">Un cafe con leche</string>
+    <string name="producto_BocCho">Bocadillo de chorizo</string>
+    <string name="desc_BocCho">Bocadillo de pan de espelta molida con chorizo de cerdo</string>
+    <string name="producto_Crua">Cruasan de mantequilla</string>
+    <string name="desc_Crua">Cruasan de masa madre con mantequilla de trex</string>
+    <string name="producto_ZumN">Zumo de naranja</string>
+    <string name="desc_ZumN">Zumo de naranja con naranjas valencianas</string>
+    <string name="add_one">Añadir una unidad</string>
+    <string name="delete_one">Quitar una unidad</string>
+    <string name="mas_opciones">Más opciones</string>
+    <string name="vaciar_pedido">Vaciar pedido</string>
+    <string name="pedido_vaciado">Pedido vaciado</string>
+    <string name="total_pedido">Total: %1$.2f €</string>
+    <string name="unidades_pedido">Unidades: %1$d</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="nombre_pedido">¿A nombre de quién?</string>
+    <string name="error_nombre">Escribe un nombre para el pedido</string>
+    <string name="para_llevar">Para llevar</string>
+    <string name="avisar_listo">Avisarme cuando esté listo</string>
+    <string name="titulo_confirmacion">¿Enviar el pedido?</string>
+    <string name="resumen_pedido">A nombre de %1$s · %2$d unidades · %3$.2f €</string>
+    <string name="resumen_aqui">Para tomar aquí</string>
+    <string name="resumen_aviso">Te avisaremos cuando esté listo</string>
+    <string name="enviar">Enviar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="pedido_enviado">Pedido de %1$s enviado</string>
+    <string name="categoria_bebida">Bebidas</string>
+    <string name="categoria_comida">Comida</string>
+    <string name="categoria_bolleria">Bollería</string>
+    <string name="categoria_todas">Todo</string>
+    <string name="producto_te">Té</string>
+    <string name="desc_te">Té caliente con hierbas naturales</string>
+    <string name="producto_agua">Agua mineral</string>
+    <string name="desc_agua">Botella de agua mineral fría</string>
+    <string name="producto_napolitana">Napolitana de chocolate</string>
+    <string name="desc_napolitana">Napolitana recién horneada rellena de chocolate</string>
+    <string name="producto_sandwich">Sándwich mixto</string>
+    <string name="desc_sandwich">Sándwich caliente de jamón y queso</string>
+
+
+</resources>
