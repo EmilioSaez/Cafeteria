@@ -8,21 +8,22 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.cafeteria.data.Categoria
 import com.example.cafeteria.data.Producto
+import com.example.cafeteria.objects.DatosCarta
+import com.example.cafeteria.ui.theme.CafeteriaTheme
 
 @Composable
 fun ContenidoCarta(
     productos: List<Producto>,
-    estado: PedidoUiState,
-    errorNombre: Boolean,
+    cantidades: Map<Int, Int>,
+    categoriaSeleccionada: Categoria?,
     onCantidadChange: (Int, Int) -> Unit,
     onCategoriaChange: (Categoria?) -> Unit,
-    onNombreChange: (String) -> Unit,
-    onParaLlevarChange: () -> Unit,
-    onAvisarChange: () -> Unit,
-    modifier: Modifier = Modifier,
+    onProductoClick: (Int) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     LazyColumn(
         modifier = modifier
@@ -33,33 +34,36 @@ fun ContenidoCarta(
             CabeceraCarta()
             Spacer(modifier = Modifier.height(24.dp))
         }
-
         item {
             FiltroCategorias(
-                seleccionada = estado.categoria,
+                seleccionada = categoriaSeleccionada,
                 onSeleccionar = onCategoriaChange
-            )
-        }
-
-        items(productos, key = { it.id }) { producto ->
-            ProductoCard(
-                producto = producto,
-                cantidad = estado.cantidades[producto.id] ?: 0,
-                onCantidadChange = { nueva -> onCantidadChange(producto.id, nueva) }
             )
             Spacer(modifier = Modifier.height(12.dp))
         }
-
-        item {
-            DatosPedido(
-                nombrePedido = estado.nombre,
-                onNombreChange = onNombreChange,
-                mostrarError = errorNombre,
-                esParaLlevar = estado.paraLlevar,
-                onValueChangeSwitch = { onParaLlevarChange() },
-                avisarListo = estado.avisar,
-                onValueChangeCheckbox = { onAvisarChange() }
+        items(productos, key = { it.id }) { producto ->
+            ProductoCard(
+                producto = producto,
+                cantidad = cantidades[producto.id] ?: 0,
+                onCantidadChange = { nueva -> onCantidadChange(producto.id, nueva) },
+                onClick = { onProductoClick(producto.id) }
             )
+            Spacer(modifier = Modifier.height(12.dp))
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ContenidoCartaPreview() {
+    CafeteriaTheme {
+        ContenidoCarta(
+            productos = DatosCarta.productos,
+            cantidades = mapOf(DatosCarta.productos.first().id to 2),
+            categoriaSeleccionada = null,
+            onCantidadChange = { _, _ -> },
+            onCategoriaChange = {},
+            onProductoClick = {}
+        )
     }
 }

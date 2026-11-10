@@ -10,24 +10,26 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.cafeteria.R
 import kotlinx.coroutines.launch
 
 @Composable
 fun PantallaCarta(
-    modifier: Modifier = Modifier,
-    pedidoViewModel: PedidoViewModel = viewModel()
+    pedidoViewModel: PedidoViewModel,
+    onProductoClick: (Int) -> Unit,
+    onVerPedido: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val estado = pedidoViewModel.uiState
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val mensajeVaciado = stringResource(R.string.pedido_vaciado)
+
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             BarraSuperiorCarta(
-                true,
+                hayPedido = pedidoViewModel.unidades > 0,
                 onVaciarPedido = {
                     pedidoViewModel.vaciarPedido()
                     scope.launch { snackbarHostState.showSnackbar(mensajeVaciado) }
@@ -39,34 +41,19 @@ fun PantallaCarta(
             BarraPedido(
                 total = pedidoViewModel.total,
                 unidades = pedidoViewModel.unidades,
-                onConfirmar = { pedidoViewModel.confirmar() }
+                textoBoton = R.string.ver_pedido,
+                onBotonClick = onVerPedido
             )
         }
     ) { innerPadding ->
         ContenidoCarta(
             productos = pedidoViewModel.productosFiltrados,
-            estado = estado,
-            errorNombre = pedidoViewModel.errorNombre,
+            cantidades = estado.cantidades,
+            categoriaSeleccionada = estado.categoria,
             onCantidadChange = pedidoViewModel::cambiarCantidad,
             onCategoriaChange = pedidoViewModel::seleccionarCategoria,
-            onNombreChange = pedidoViewModel::cambiarNombre,
-            onParaLlevarChange = pedidoViewModel::cambiarParaLlevar,
-            onAvisarChange = pedidoViewModel::cambiarAvisar,
+            onProductoClick = onProductoClick,
             modifier = Modifier.padding(innerPadding)
-        )
-    }
-
-    if (estado.mostrarConfirmacion) {
-        DialogoConfirmacion(
-            nombre = estado.nombre,
-            esParaLlevar = estado.paraLlevar,
-            avisarListo = estado.avisar,
-            onDismiss = { pedidoViewModel.cancelarConfirmar() },
-            onConfirm = {
-                val nombre = estado.nombre
-                pedidoViewModel.enviarPedido()
-                scope.launch { snackbarHostState.showSnackbar("Pedido de $nombre enviado") }
-            }
         )
     }
 }
