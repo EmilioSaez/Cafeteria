@@ -7,8 +7,23 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.cafeteria.ui.navegacion.AppCafeteria
 import com.example.cafeteria.ui.theme.CafeteriaTheme
-
+import android.app.Application
+import androidx.room.Room
+import com.example.cafeteria.data.local.CafeteriaDatabase
 private const val TAG = "CicloVida"
+
+
+
+class CafeteriaApp : Application() {
+
+    val database: CafeteriaDatabase by lazy {
+        Room.databaseBuilder(
+            this,
+            CafeteriaDatabase::class.java,
+            "cafeteria.db"
+        ).build()
+    }
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -31,8 +31,11 @@ import kotlinx.coroutines.launch
 @Composable
 fun BarraSuperiorCarta(
     hayPedido: Boolean,
+    hayTicket: Boolean,
     modifier: Modifier = Modifier,
     onVaciarPedido: () -> Unit = {},
+    onVerTicket: () -> Unit = {},
+    onOlvidarDatos: () -> Unit = {}
 ) {
     var menuAbierto by remember { mutableStateOf(false) }
 
@@ -65,8 +68,21 @@ fun BarraSuperiorCarta(
                         onClick = {
                             menuAbierto = false
                             onVaciarPedido()
-
-
+                        }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.ultimo_pedido)) },
+                        enabled = hayTicket,
+                        onClick = {
+                            menuAbierto = false
+                            onVerTicket()
+                        }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.olvidar_datos)) },
+                        onClick = {
+                            menuAbierto = false
+                            onOlvidarDatos()
                         }
                     )
                 }

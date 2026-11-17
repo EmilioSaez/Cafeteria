@@ -53,4 +53,15 @@
     <string name="volver_carta">Return to the menu</string>
     <string name="olvidar_datos">Forgot my dates</string>
     <string name="datos_olvidados">Your dates were forgotten</string>
+    <string name="ultimo_pedido">last command</string>
+    <string name="titulo_ticket">ticket tittle</string>
+    <string name="ticket_para_llevar">ticket to go</string>
+    <string name="ticket_para_tomar">ticket to eat here</string>
+    <string name="producto_desconocido">Product %1$d</string>
+    <string name="cerrar">Close</string>
+    <string name="historial_pedidos">order history</string>
+    <string name="historial_vacio">No orders saved yet</string>
+    <string name="titulo_detalle_pedido">Order #%1$d</string>
+    <string name="borrar_pedido">Delete order</string>
+    <string name="pedidos_cliente">Orders by %1$s: %2$d</string>
 </resources>

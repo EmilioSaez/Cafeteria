@@ -24,15 +24,22 @@ fun PantallaCarta(
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val mensajeVaciado = stringResource(R.string.pedido_vaciado)
+    val datosOlvidados = stringResource(R.string.datos_olvidados)
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             BarraSuperiorCarta(
                 hayPedido = pedidoViewModel.unidades > 0,
+                hayTicket = estado.ultimoTicket != null,
                 onVaciarPedido = {
                     pedidoViewModel.vaciarPedido()
                     scope.launch { snackbarHostState.showSnackbar(mensajeVaciado) }
+                },
+                onVerTicket = pedidoViewModel::verTicket,
+                onOlvidarDatos = {
+                    pedidoViewModel.olvidarDatos()
+                    scope.launch { snackbarHostState.showSnackbar(datosOlvidados) }
                 }
             )
         },
@@ -54,6 +61,15 @@ fun PantallaCarta(
             onCategoriaChange = pedidoViewModel::seleccionarCategoria,
             onProductoClick = onProductoClick,
             modifier = Modifier.padding(innerPadding)
+        )
+    }
+    val ticket = estado.ultimoTicket
+    if (estado.mostrarTicket && ticket != null) {
+        DialogoTicket(
+            ticket = ticket,
+            buscarProducto = pedidoViewModel::buscarProducto,
+            onCerrar = pedidoViewModel::cerrarTicket,
+            pedidosCliente = 2 ,
         )
     }
 }

@@ -52,4 +52,16 @@
     <string name="volver_carta">Volver a la carta</string>
     <string name="olvidar_datos">Olvidar mis datos</string>
     <string name="datos_olvidados">Se han borrado tus datos</string>
+    <string name="ultimo_pedido">Último pedido</string>
+    <string name="titulo_ticket">Tu último pedido</string>
+    <string name="ticket_para_llevar">Para llevar</string>
+    <string name="ticket_para_tomar">Para tomar aquí</string>
+    <string name="producto_desconocido">Producto %1$d</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="historial_pedidos">historial de pedidos</string>
+    <string name="historial_vacio">Todavia no hay pedidos guardados</string>
+    <string name="titulo_detalle_pedido">Pedido n.º %1$d </string>
+    <string name="borrar_pedido">borrar pedido</string>
+    <string name="pedidos_cliente">Pedidos de %1$s: %2$d</string>
+
 </resources>
